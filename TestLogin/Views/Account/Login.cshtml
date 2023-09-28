@@ -1,0 +1,22 @@
+﻿@model TestLogin.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="mt-1">
+        @Html.LabelFor(x => x.Username);
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+    </div>
+    <div class="mt-1">
+        @Html.LabelFor(x => x.Password);
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div class="mt-1">
+        <button class="btn btn-primary">Login</button>
+    </div>
+}
